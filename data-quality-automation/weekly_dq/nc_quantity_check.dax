@@ -1,0 +1,33 @@
+// Weekly data quality query, run by Power Automate against the published dataset
+// "Coman Quality Dashboard" (action: Power BI > Run a query against a dataset).
+//
+// Returns every withdrawal or recall (NC level 4-5) reported since January of last year,
+// with the partner attributes the data owners need, plus the two fields we check:
+// Quantity Impacted and UoM. The Office Script decides which rows are errors.
+//
+// Inactive partners are kept: the dashboard hides them, but their data still has to be right.
+
+DEFINE
+    VAR CurrentYear = YEAR ( [As Of Date] )
+
+EVALUATE
+SELECTCOLUMNS (
+    FILTER (
+        'Fact NC',
+        'Fact NC'[NC Level] >= 4
+            && 'Fact NC'[Status] <> "Cancelled"
+            && YEAR ( 'Fact NC'[Date Reported] ) >= CurrentYear - 1
+    ),
+    "Region", RELATED ( 'Dim Partner'[Region] ),
+    "Partner Type", RELATED ( 'Dim Partner'[Partner Type] ),
+    "Partner Name", RELATED ( 'Dim Partner'[Partner Name] ),
+    "Factory ID", 'Fact NC'[Factory ID],
+    "Record ID", 'Fact NC'[Record ID],
+    "Source", 'Fact NC'[Source],
+    "Date Reported", 'Fact NC'[Date Reported],
+    "NC Level", 'Fact NC'[NC Level],
+    "Status", 'Fact NC'[Status],
+    "Quantity Impacted", 'Fact NC'[Quantity Impacted],
+    "UoM", 'Fact NC'[UoM]
+)
+ORDER BY [Region], [Partner Name], [Date Reported]

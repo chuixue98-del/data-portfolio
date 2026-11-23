@@ -1,0 +1,47 @@
+[Region],[Partner Type],[Partner Name],[Factory ID],[Record ID],[Source],[Date Reported],[NC Level],[Status],[Quantity Impacted],[UoM]
+Asia Pacific,Co-manufacturer,Altaford Dairy,F-10834,NC-001645,Quality system,2025-12-02,4,Closed,14999.0,CU
+Asia Pacific,Co-manufacturer,Deltahaven Processing,F-10323,NC-000639,Quality system,2025-11-05,4,Closed,92862.0,KG
+Asia Pacific,Co-manufacturer,Irislund Creamery,F-10617,NC-001293,Quality system,2025-06-02,5,Closed,111705.0,CU
+Asia Pacific,Licensee,Quinberg Creamery,F-10309,MAN-00236,Manual collection,2026-01-01,4,Closed,154816.0,CU
+Asia Pacific,Co-manufacturer,Rivahaven Nutrition,F-10344,NC-000689,Quality system,2025-10-03,4,Open,175098.0,CU
+Asia Pacific,Co-manufacturer,Solvik Nutrition,F-10407,NC-000870,Quality system,2026-01-21,4,Closed,72089.0,CU
+Asia Pacific,Co-manufacturer,Valelund Labs,F-10064,NC-000156,Quality system,2026-07-10,5,Closed,51185.0,CU
+Europe,Co-manufacturer,Altafield Nutrition,F-10400,NC-000857,Quality system,2026-07-19,4,Closed,55286.0,KG
+Europe,Licensee,Boramont Dairy,F-11135,MAN-00810,Manual collection,2025-02-01,5,Closed,139420.0,CU
+Europe,Licensee,Borawood Labs,F-10134,MAN-00132,Manual collection,2025-06-01,4,Closed,,
+Europe,Co-manufacturer,Corvimont Beverages,F-11170,NC-002288,Quality system,2026-08-26,4,Open,43446.0,CU
+Europe,Licensee,Deltadal Foods,F-10120,MAN-00117,Manual collection,2026-02-01,4,Closed,62893.0,CU
+Europe,Co-manufacturer,Deltastad Labs,F-10218,NC-000416,Quality system,2025-03-17,4,Closed,187012.0,CU
+Europe,Licensee,Fjellmont Foods,F-11100,MAN-00806,Manual collection,2026-08-01,4,Open,174321.0,CU
+Europe,Co-manufacturer,Orostad Bottling,F-11163,NC-002270,Quality system,2026-06-06,5,Closed,144145.0,CU
+Europe,Joint venture,Selamar Beverages,F-10085,MAN-00061,Manual collection,2025-11-01,4,Closed,61520.0,CU
+Europe,Co-manufacturer,Solfield Dairy,F-10764,NC-001519,Quality system,2025-02-09,4,Closed,117929.0,CU
+Europe,Co-manufacturer,Valepolis Creamery,F-11156,NC-002243,Quality system,2025-10-06,4,Closed,105402.0,CU
+Europe,Co-manufacturer,Valepolis Creamery,F-11156,NC-002251,Quality system,2026-08-05,4,Open,60058.0,CU
+Europe,Co-manufacturer,Valestad Labs,F-10666,NC-001377,Quality system,2025-08-20,4,Closed,164559.0,CU
+Europe,Co-manufacturer,Valestad Labs,F-10666,NC-001381,Quality system,2025-11-17,4,Closed,138090.0,CU
+Europe,Co-manufacturer,Zenberg Dairy,F-11023,NC-001977,Quality system,2026-03-23,4,Closed,39891.0,CU
+Greater China,Co-manufacturer,Miraberg Dairy,F-10232,NC-000444,Quality system,2025-09-07,4,Closed,167009.0,CU
+Latin America,Co-manufacturer,Altahaven Bottling,F-10330,NC-000665,Quality system,2026-02-21,4,Closed,11061.0,CU
+Latin America,Co-manufacturer,Ardenfield Processing,F-10302,NC-000587,Quality system,2025-04-22,5,Open,117997.0,CU
+Latin America,Co-manufacturer,Ardenfield Processing,F-10302,NC-000594,Quality system,2025-11-10,4,Closed,41685.0,CU
+Latin America,Co-manufacturer,Ardenfield Processing,F-10302,NC-000602,Quality system,2026-03-02,4,Closed,28348.0,KG
+Latin America,Co-manufacturer,Fjellpolis Dairy,F-10708,NC-001432,Quality system,2025-02-16,5,Closed,125446.0,CU
+Latin America,Co-manufacturer,Paniastad Dairy,F-10533,NC-001121,Quality system,2025-05-07,4,Closed,119118.0,CU
+Latin America,Co-manufacturer,Paniastad Dairy,F-10533,NC-001129,Quality system,2025-11-28,5,Closed,82158.0,CU
+Middle East & Africa,Co-manufacturer,Brynlund Creamery,F-10505,NC-001062,Quality system,2026-01-21,5,Closed,155045.0,CU
+Middle East & Africa,Co-manufacturer,Cedrovik Labs,F-10841,NC-001655,Quality system,2025-11-17,4,Closed,191923.0,CU
+Middle East & Africa,Co-manufacturer,Miravik Processing,F-10078,NC-000193,Quality system,2026-09-20,4,Open,119395.0,CU
+Middle East & Africa,Licensee,Nordfield Foods,F-11037,MAN-00741,Manual collection,2025-10-01,4,Open,147591.0,CU
+Middle East & Africa,Co-manufacturer,Rivadal Foods,F-10267,NC-000538,Quality system,2026-08-02,4,Open,,
+Middle East & Africa,Licensee,Selaford Foods,F-10680,MAN-00491,Manual collection,2026-03-01,4,Closed,139204.0,CU
+Middle East & Africa,Co-manufacturer,Taralund Nutrition,F-10372,NC-000793,Quality system,2026-09-25,4,Open,75502.0,CU
+Middle East & Africa,Co-manufacturer,Tarawood Beverages,F-10043,NC-000098,Quality system,2025-02-14,4,Closed,130554.0,CU
+Middle East & Africa,Co-manufacturer,Valefield Nutrition,F-10421,NC-000921,Quality system,2026-08-15,4,Closed,63995.0,CU
+North America,Co-manufacturer,Ardendal Labs,F-10575,NC-001212,Quality system,2026-02-20,4,Closed,183306.0,CU
+North America,Co-manufacturer,Boradal Nutrition,F-11121,NC-002177,Quality system,2025-08-17,4,Closed,177065.0,CU
+North America,Co-manufacturer,Brynberg Processing,F-10365,NC-000754,Quality system,2025-09-30,4,Closed,35224.0,CU
+North America,Co-manufacturer,Irispolis Beverages,F-10960,NC-001861,Quality system,2026-01-23,5,Closed,165157.0,CU
+North America,Co-manufacturer,Kestwood Creamery,F-10743,NC-001494,Quality system,2026-05-09,5,Open,44966.0,CU
+North America,Licensee,Selavik Processing,F-10288,MAN-00220,Manual collection,2026-07-01,4,Closed,21023.0,CU
+North America,Co-manufacturer,Solpolis Labs,F-10673,NC-001393,Quality system,2026-05-24,4,Closed,119000.0,CU
