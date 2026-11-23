@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yiran Zhang · Data &amp; BI</title>
-<meta name="description" content="Yiran Zhang, Data & BI Analyst. Power BI dashboards on many data sources, data quality automation and KPI design.">
+<title>Yiran Zhang · Analytics Engineer</title>
+<meta name="description" content="Yiran Zhang, Analytics Engineer. Power BI semantic models on many data sources, data quality automation and KPI design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -61,6 +61,7 @@
   .cv-view { position: fixed; inset: 0; z-index: 20; overflow: auto; padding: 24px 16px; background: rgba(20, 33, 46, .72); }
   .cv-bar { max-width: 820px; margin: 0 auto 12px; display: flex; justify-content: flex-end; gap: 10px; }
   .cv-bar button { padding: 9px 16px; border: 0; border-radius: 999px; background: var(--paper); color: var(--ink); font: 500 14.5px var(--sans); cursor: pointer; }
+  .cv-bar a { padding: 9px 16px; border-radius: 999px; background: var(--accent); color: #fff; font: 500 14.5px var(--sans); text-decoration: none; }
   .cv-view img { display: block; width: 100%; max-width: 820px; height: auto; margin: 0 auto; border-radius: 6px; background: #fff; }
 
   /* Email notice */
@@ -226,13 +227,13 @@
 <section class="slide" id="home" data-view="home">
   <div class="inner hero-grid">
     <div>
-      <div class="label">Data &amp; BI Analyst · Danone · Netherlands</div>
+      <div class="label">Analytics Engineer · Power BI · Data Quality</div>
       <h1>Yiran Zhang</h1>
       <p class="tagline">I bring data from many sources into <em>one model</em>, then build dashboards people <em>trust</em>.</p>
       <div class="btns">
         <a class="btn solid" href="#projects">See projects</a>
         <a class="btn" href="#intro">About me</a>
-        <a class="btn" href="cv.html">CV</a>
+        <a class="btn" href="#" data-cv>CV</a>
         <a class="btn" href="#" data-email>Email</a>
         <a class="btn" href="https://www.linkedin.com/in/yiran-z-b42341159" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/chuixue98-del/data-portfolio" target="_blank" rel="noopener">Code on GitHub</a>
@@ -295,7 +296,8 @@
     <div>
       <div class="kicker">About me</div>
       <h2>I connect the business and the data.</h2>
-      <p class="bio">I am a Data &amp; BI Analyst at Danone in the Netherlands. I build Power BI dashboards for quality teams in six regions, and the data workflows behind them.</p>
+      <p class="bio">I build the layer between raw data and decisions: clean, tested data models and Power BI semantic models that business teams can trust.</p>
+      <p class="bio">As a Data &amp; BI Analyst at Danone in the Netherlands, I own the model behind the quality dashboard for 150+ manufacturing partners in six regions, built from 20+ sources and kept in Git.</p>
       <p class="bio">Before Danone, I worked on supplier master data and Power BI KPI dashboards at the IAEA, a United Nations agency, and on market research as a part-time analyst at Boston Consulting Group.</p>
       <p class="bio">My background in international relations helps me work with teams across regions and functions.</p>
       <p class="bio muted">English · Chinese</p>
@@ -303,10 +305,11 @@
     <div class="panel">
       <div class="kicker">Expertise</div>
       <dl class="skills">
-        <div><dt>Power BI</dt><dd>Power Query, star schema models, DAX, row-level security, PBIP and Git</dd></div>
-        <div><dt>Data preparation</dt><dd>Python, SQL, Snowflake, dbt; Excel, CSV and SharePoint sources</dd></div>
-        <div><dt>Automation</dt><dd>Power Automate, DAX queries, Office Scripts, Python checks</dd></div>
-        <div><dt>Data quality &amp; master data</dt><dd>Quality rules, exception lists, data dictionaries; SAP, Salesforce, Veeva</dd></div>
+        <div><dt>Modelling &amp; BI</dt><dd>Power BI semantic models: DAX, Power Query, star schema, PBIP</dd></div>
+        <div><dt>Data</dt><dd>SQL, Python (pandas), Snowflake, dbt</dd></div>
+        <div><dt>Engineering practice</dt><dd>Git, unit tests, data tests, documentation and lineage</dd></div>
+        <div><dt>Automation</dt><dd>Power Automate, Office Scripts, SharePoint</dd></div>
+        <div><dt>Data quality &amp; source systems</dt><dd>Quality rules, master data; SAP, Salesforce, Veeva</dd></div>
         <div><dt>Adoption &amp; AI</dt><dd>Tutorial videos, Copilot agents, AI agent testing, working with KPI owners and IT</dd></div>
       </dl>
     </div>
@@ -533,7 +536,7 @@
     </div>
     <div class="btns">
       <a class="btn solid" href="#" data-email>Get in touch</a>
-      <a class="btn" href="cv.html">CV</a>
+      <a class="btn" href="#" data-cv>CV</a>
       <a class="btn" href="https://www.linkedin.com/in/yiran-z-b42341159" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/chuixue98-del/data-portfolio" target="_blank" rel="noopener">Code on GitHub</a>
     </div>
@@ -589,7 +592,7 @@
   // Handle page links here, because previews such as SharePoint can block hash navigation
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
-    if (!a || a.hasAttribute('data-email')) return;
+    if (!a || a.hasAttribute('data-email') || a.hasAttribute('data-cv')) return;
     e.preventDefault();
     var id = a.getAttribute('href').slice(1);
     route(id);
@@ -694,6 +697,23 @@
       }
     });
   });
+})();
+</script>
+<div class="cv-view" id="cvView" role="dialog" aria-label="CV" hidden>
+  <div class="cv-bar"><a href="CV_Yiran%20Zhang.pdf" download>Download PDF</a><button type="button" id="cvClose">Close</button></div>
+  <img alt="CV of Yiran Zhang" src="images/cv.png" loading="lazy">
+</div>
+<script>
+(function () {
+  // Show the CV inside the page; the PDF is one click away.
+  var view = document.getElementById('cvView');
+  function close() { view.hidden = true; }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cv]'), function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); view.hidden = false; view.scrollTop = 0; });
+  });
+  document.getElementById('cvClose').addEventListener('click', close);
+  view.addEventListener('click', function (e) { if (e.target === view) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
 </script>
 </body>
