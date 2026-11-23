@@ -1,0 +1,17 @@
+Master list check: 2026-11-04-1741 vs 2026-10-23-0930
+
+Rows: 300   Factories: 181
+
+New factories (1)
+  F-99901  NEWBRIDGE CO-PACKING
+
+Removed factories (0)
+  none
+
+Vendor ID changes
+  F-10001  added []  removed ['2040020']
+  F-10015  added []  removed ['2040117']
+  F-10036  added ['2040117']  removed []
+
+Moved vendor IDs (check the factory mapping in the dashboard)
+  2040117: F-10015 -> F-10036
