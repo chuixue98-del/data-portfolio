@@ -1,0 +1,16 @@
+# Local only: replica of a work dashboard (company design, never published)
+replica/
+
+# Raw screen recordings (only the compressed videos in images/ are published)
+recordings/
+
+# Regenerated on every run of the cleaning script
+data-quality-automation/sample-data/clean/
+
+# Python / OS / Office temp files
+__pycache__/
+*.pyc
+.venv/
+Thumbs.db
+.DS_Store
+~$*
