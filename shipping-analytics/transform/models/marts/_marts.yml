@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: fct_tracking_events
+    description: All carrier events. Incremental, processes only newly loaded events.
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: shipment_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_shipments')
+                field: shipment_id
+
+  - name: fct_shipments
+    description: One row per shipment with its status and delivery performance.
+    columns:
+      - name: shipment_id
+        data_tests: [unique, not_null]
+      - name: current_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [label_created, announced, in_transit, out_for_delivery, delivered, returned, exception]
+      - name: is_on_time
+        description: Delivered on or before the promised date. Empty while not delivered.
+      - name: is_overdue_open
+        description: Promised date has passed and the parcel is neither delivered nor returned.
+
+  - name: dim_merchants
+    description: Current merchant details, from the snapshot, with shipment totals.
+    columns:
+      - name: merchant_id
+        data_tests: [unique, not_null]
+
+  - name: mart_merchant_health
+    description: >
+      Shipping health per merchant over the last 30 days, for Customer Success.
+      Rules: churned (no shipments after 50+ before), at_risk (volume down 30%+ or under
+      85% on time with 30+ delivered), watch (volume down 15%+), else healthy. Volume rules
+      need 50+ shipments in the previous 30 days, so small merchants do not cause false alarms.
+    columns:
+      - name: merchant_id
+        data_tests: [unique, not_null]
+      - name: health_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [healthy, watch, at_risk, churned]
