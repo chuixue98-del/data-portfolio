@@ -1,0 +1,13 @@
+snapshots:
+  - name: snap_merchants
+    description: >
+      History of the merchant list. Each load of a new CRM export is compared with the
+      last one; when plan, country or name changes, the old row is closed (dbt_valid_to)
+      and a new row is opened. The pandas script in data-quality-automation/snapshot_check
+      solves the same problem by comparing two files; this keeps the full history in the warehouse.
+    relation: ref('stg_merchants')
+    config:
+      schema: snapshots
+      unique_key: merchant_id
+      strategy: check
+      check_cols: [merchant_name, country, plan]

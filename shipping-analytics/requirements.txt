@@ -1,0 +1,6 @@
+# dbt 1.10 is pinned: later versions download a parser from GitHub at install time.
+dbt-core>=1.10,<1.11
+dbt-duckdb>=1.9,<1.10
+duckdb>=1.1
+pytest>=8
+ruff>=0.6

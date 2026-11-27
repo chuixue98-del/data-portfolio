@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Files loaded as text by ingest/load_raw.py. Nothing is cleaned here.
+    schema: raw
+    config:
+      loaded_at_field: _loaded_at
+      freshness:
+        warn_after: {count: 1, period: day}
+        error_after: {count: 3, period: day}
+    tables:
+      - name: carriers
+        description: Carrier reference list.
+      - name: merchants
+        description: One export of the merchant list from the CRM. Replaced on every load.
+      - name: shipments
+        description: One row per shipping label. The export repeats some rows.
+      - name: tracking_events
+        description: Carrier status updates, appended one daily file at a time. The API sometimes sends an event twice.

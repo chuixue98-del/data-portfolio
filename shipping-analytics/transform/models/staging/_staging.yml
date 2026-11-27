@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_carriers
+    description: Carriers, with codes in one format.
+    columns:
+      - name: carrier_code
+        data_tests: [unique, not_null]
+
+  - name: stg_merchants
+    description: Merchants from the latest CRM export.
+    columns:
+      - name: merchant_id
+        data_tests: [unique, not_null]
+      - name: plan
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [free, lite, growth, premium, pro]
+
+  - name: stg_shipments
+    description: One row per shipment, duplicates removed, codes cleaned.
+    columns:
+      - name: shipment_id
+        data_tests: [unique, not_null]
+      - name: merchant_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+      - name: carrier_code
+        description: >
+          Should match a known carrier. Warns instead of failing: an unknown code
+          (such as the legacy DHLX) needs a mapping from the data owner, not a stopped pipeline.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_carriers')
+                field: carrier_code
+              config:
+                severity: warn
+      - name: service_level
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [standard, express, mailbox]
+      - name: has_invalid_weight
+        description: True when the source weight was zero or less. weight_kg is then empty.
+
+  - name: stg_tracking_events
+    description: Carrier status events, one row per event.
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [announced, in_transit, out_for_delivery, delivered, returned, exception]
+
+unit_tests:
+  - name: test_carrier_codes_and_duplicates_are_cleaned
+    description: Messy carrier codes become one format and repeated rows become one.
+    model: stg_shipments
+    given:
+      - input: source('raw', 'shipments')
+        rows:
+          - {shipment_id: S1, carrier_code: " dhl ", weight_kg: "2.5", _loaded_at: "2026-11-01 10:00:00"}
+          - {shipment_id: S1, carrier_code: " dhl ", weight_kg: "2.5", _loaded_at: "2026-11-01 10:00:00"}
+          - {shipment_id: S2, carrier_code: "postnl", weight_kg: "-1.0", _loaded_at: "2026-11-01 10:00:00"}
+    expect:
+      rows:
+        - {shipment_id: S1, carrier_code: DHL, weight_kg: 2.5, has_invalid_weight: false}
+        - {shipment_id: S2, carrier_code: POSTNL, weight_kg: null, has_invalid_weight: true}

@@ -7,6 +7,16 @@ recordings/
 # Regenerated on every run of the cleaning script
 data-quality-automation/sample-data/clean/
 
+# Shipping analytics: data is generated, the warehouse and dbt output are rebuilt on every run
+shipping-analytics/data/
+shipping-analytics/*.duckdb
+shipping-analytics/*.duckdb.wal
+shipping-analytics/transform/target/
+shipping-analytics/transform/logs/
+shipping-analytics/transform/.user.yml
+.pytest_cache/
+.ruff_cache/
+
 # Python / OS / Office temp files
 __pycache__/
 *.pyc
